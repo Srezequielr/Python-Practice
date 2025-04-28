@@ -23,10 +23,12 @@ def test():
     numero = input()
     manejadorUno.cargarSaldo(monto, numero)
     
-    manejadorUno.pagarPasaje(tarifa, 1)
-    manejadorUno.pagarPasaje(tarifa, 2)
+    print(manejadorUno.pagarPasaje(tarifa, "1"))
+    print(manejadorUno.pagarPasaje(tarifa, "2"))
+    
+    
 
     
-    manejadorUno.verTarjetas()
+    manejadorUno.verSaldoNeg()
 if __name__ == '__main__':
     test()

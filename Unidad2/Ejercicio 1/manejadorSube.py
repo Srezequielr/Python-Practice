@@ -15,7 +15,7 @@ class ManejadorSube:
     def pagarPasaje(self, tarifa, numero):
         for sube in self.__lista:
             if sube.getNumero() == numero:
-                if sube.getSaldo() >= tarifa:
+                if sube.getSaldo() - tarifa >= -500:
                     sube.cargar(-tarifa)
                     return "Pasaje pagado con éxito, saldo restante: " + str(sube.getSaldo())
                 else:
@@ -24,3 +24,7 @@ class ManejadorSube:
     def verTarjetas(self):
         for sube in self.__lista:
             print("Numero de tarjeta: ", sube.getNumero(), ", Saldo: ", sube.getSaldo())
+    def verSaldoNeg(self):
+        for sube in self.__lista:
+            if sube.getSaldo() < 0:
+                print("Numero de tarjeta: " + sube.getSaldo())
