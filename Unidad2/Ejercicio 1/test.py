@@ -5,30 +5,28 @@ def test():
     tarifa = 500
     manejadorUno = ManejadorSube()
     
-    print("Ingrese numero de sube 1")
-    manejadorUno.agregarSube(input());
-    print("Ingrese numero de sube 2")
-    manejadorUno.agregarSube(input());
-    print("Ingrese numero de sube 3")
-    manejadorUno.agregarSube(input());  
-    print("Ingrese monto a cargar")
-    monto = int(input()) 
-    print("Ingrese numero de tarjeta")    
-    numero = input()
-    
-    manejadorUno.cargarSaldo(monto, numero)
-    print("Ingrese monto a cargar")
-    monto = int(input())
-    print("Ingrese numero de tarjeta")    
-    numero = input()
-    manejadorUno.cargarSaldo(monto, numero)
-    
-    print(manejadorUno.pagarPasaje(tarifa, "1"))
-    print(manejadorUno.pagarPasaje(tarifa, "2"))
-    
+    manejadorUno.agregarSube(input("Ingrese numero de sube 1: "));
+    manejadorUno.agregarSube(input("Ingrese numero de sube 2: "));
+    manejadorUno.agregarSube(input("Ingrese numero de sube 3: "));  
     
 
+    numero = input("Ingrese numero de tarjeta: ")
+    monto = int(input("Ingrese monto a cargar: ")) 
+    print(manejadorUno.cargarSaldo(numero, monto))  
     
-    manejadorUno.verSaldoNeg()
+ 
+    numero = input("Ingrese numero de tarjeta: ")
+    monto = int(input("Ingrese monto a cargar: "))
+    print(manejadorUno.cargarSaldo(numero, monto))
+    
+    numero = input("Ingrese numero de tarjeta: ")
+    print(manejadorUno.verSaldo(numero))
+    
+    print(manejadorUno.pagarPasaje("1", tarifa))
+    print(manejadorUno.pagarPasaje("3", tarifa))
+    
+
+    manejadorUno.verSubesNeg()
+    
 if __name__ == '__main__':
     test()

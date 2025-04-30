@@ -3,28 +3,30 @@ class ManejadorSube:
     def __init__(self):
         self.__lista = []
     def agregarSube(self, numero):
-        unSube = Sube(numero)
-        self.__lista.append(unSube)
-    def cargarSaldo(self, monto, numero):
-        if monto < 0:
+        nuevaSube = Sube(numero)
+        self.__lista.append(nuevaSube)
+    def cargarSaldo(self, numero, monto):
+        if monto <= 0:
             return "Monto inválido"
-        for sube in self.__lista:            
-            if sube.getNumero() == numero:
-                sube.cargar(monto)
-                return "Carga existosa"
-    def pagarPasaje(self, tarifa, numero):
-        for sube in self.__lista:
-            if sube.getNumero() == numero:
-                if sube.getSaldo() - tarifa >= -500:
-                    sube.cargar(-tarifa)
-                    return "Pasaje pagado con éxito, saldo restante: " + str(sube.getSaldo())
+        for Sube in self.__lista:
+            if Sube.verNumero() == numero:
+                return "Carga exitosa, saldo restante: " + str(Sube.cargarSaldo(monto))
+        return "Tarjeta no encontrada"
+    def pagarPasaje(self, numero, tarifa):
+        for Sube in self.__lista:
+            if Sube.verNumero() == numero:
+                if Sube.pagarPasaje(tarifa) == -1:
+                    return "Saldo insuficiente"
                 else:
-                    return "Saldo insuficiente para pagar el pasaje."
-        return "El número de tarjeta no existe."
-    def verTarjetas(self):
-        for sube in self.__lista:
-            print("Numero de tarjeta: ", sube.getNumero(), ", Saldo: ", sube.getSaldo())
-    def verSaldoNeg(self):
-        for sube in self.__lista:
-            if sube.getSaldo() < 0:
+                    return "Pago realizado, saldo restante es " + str(Sube.verSaldo()) 
+    def verSaldo(self, numero):
+        for Sube in self.__lista:
+            if Sube.verNumero() == numero:
+                return "Saldo: " + str(Sube.verSaldo())
+            else:
+                return "Sube no encontrada"
+    def verSubesNeg(self):
+        for Sube in self.__lista:
+            if Sube.verSaldo() < 0:
                 print("Numero de tarjeta: " + sube.getSaldo())
+
