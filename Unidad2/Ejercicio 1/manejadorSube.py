@@ -28,5 +28,5 @@ class ManejadorSube:
     def verSubesNeg(self):
         for Sube in self.__lista:
             if Sube.verSaldo() < 0:
-                print("Numero de tarjeta: " + sube.getSaldo())
+                print("Numero de tarjeta: " + Sube.getSaldo())
 
