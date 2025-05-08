@@ -6,12 +6,19 @@ class ManejadorSube:
         nuevaSube = Sube(numero)
         self.__lista.append(nuevaSube)
     def cargarSaldo(self, numero, monto):
+        encontrado = None
+        i = 0
+        retorno = -1
         if monto <= 0:
-            return "Monto inválido"
-        for Sube in self.__lista:
-            if Sube.verNumero() == numero:
-                return "Carga exitosa, saldo restante: " + str(Sube.cargarSaldo(monto))
-        return "Tarjeta no encontrada"
+            encontrado = True
+            retorno = -1
+        while not encontrado and i < len(self.__lista):
+            if self.__lista[i].verNumero() == numero:   
+                retorno = self.__lista[i].cargarSaldo(monto)
+                encontrado = True
+            else:
+                i+=1
+        return retorno
     def pagarPasaje(self, numero, tarifa):
         for Sube in self.__lista:
             if Sube.verNumero() == numero:
