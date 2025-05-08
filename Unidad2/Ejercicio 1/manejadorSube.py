@@ -20,18 +20,30 @@ class ManejadorSube:
                 i+=1
         return retorno
     def pagarPasaje(self, numero, tarifa):
-        for Sube in self.__lista:
-            if Sube.verNumero() == numero:
-                if Sube.pagarPasaje(tarifa) == -1:
-                    return "Saldo insuficiente"
+        encontrado = None
+        i = 0
+        retorno = -1
+        while not encontrado and i < len(self.__lista):
+            if self.__lista[i].verNumero() == numero:
+                if self.__lista[i].pagarPasaje(tarifa) == -1:
+                    retorno = -1
                 else:
-                    return "Pago realizado, saldo restante es " + str(Sube.verSaldo()) 
-    def verSaldo(self, numero):
-        for Sube in self.__lista:
-            if Sube.verNumero() == numero:
-                return "Saldo: " + str(Sube.verSaldo())
+                    retorno = Sube.verSaldo()  
+                encontrado = True
             else:
-                return "Sube no encontrada"
+                i += 1        
+        return retorno
+    def verSaldo(self, numero):
+        encontrado = None
+        i = 0
+        retorno = -1
+        while not encontrado and i < len(self.__lista):
+            if self.__lista.verNumero() == numero:
+                retorno = self.__lista.verSaldo()
+                encontrado = True
+            else:
+                i += 1
+        return retorno 
     def verSubesNeg(self):
         for Sube in self.__lista:
             if Sube.verSaldo() < 0:

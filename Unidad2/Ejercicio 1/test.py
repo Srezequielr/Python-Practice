@@ -30,10 +30,24 @@ def test():
     
         
     numero = input("Ingrese numero de tarjeta: ")
-    print(manejadorUno.verSaldo(numero))
     
-    print(manejadorUno.pagarPasaje("1", tarifa))
-    print(manejadorUno.pagarPasaje("3", tarifa))
+    marca = manejadorUno.verSaldo(numero)
+    if marca != -1:
+        print(f"Saldo actual: {marca}")
+    else:
+        print("Sube no encontrada")
+    
+    marca = manejadorUno.pagarPasaje("1", tarifa)
+    if marca != -1:
+        print(f"Pago exsitoso, saldo: {marca}")
+    else:
+        print("Error en el pago")
+    
+    marca = manejadorUno.pagarPasaje("3", tarifa)
+    if marca != -1:
+        print(f"Pago exsitoso, saldo: {marca}")
+    else:
+        print("Error en el pago")
     
 
     manejadorUno.verSubesNeg()
