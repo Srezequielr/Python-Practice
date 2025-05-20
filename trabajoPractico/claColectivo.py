@@ -4,7 +4,7 @@ class Colectivo:
     __modelo: float
     __capacidad: int
     __dniChof: int
-    colectivo = 35
+    consumo = 35
     def __init__(self, patente, marca, modelo, capacidad, dniChof):
         self.__patente = patente
         self.__marca = marca

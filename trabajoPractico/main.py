@@ -10,9 +10,19 @@ def menu():
     return opcion
 
 if __name__ == '__main__':
-    op = menu()
-    
+    option = None
     manCol = ManejadorColectivo()
     manCol.cargarDatos()
     manTram = manejadorTramo(manCol)
     manTram.cargarDatos()
+
+    while option != 0:
+        option = menu()
+        if option == 1:
+            manTram.listaTramos()
+        elif option == 2:
+            manTram.listarColectivos()
+        elif option == 3:
+            manTram.mostrarTramosMayores()
+        elif option == 0:
+            print("Fin del programa")

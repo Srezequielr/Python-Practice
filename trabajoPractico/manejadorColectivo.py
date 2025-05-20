@@ -42,19 +42,7 @@ class ManejadorColectivo:
             else:
                 i += 1
         return retorno
-        
-        
-        
-        
-        
-    #     def verSaldo(self, numero):
-    #     encontrado = None
-    #     i = 0
-    #     retorno = -1
-    #     while not encontrado and i < len(self.__lista):
-    #         if self.__lista.verNumero() == numero:
-    #             retorno = self.__lista.verSaldo()
-    #             encontrado = True
-    #         else:
-    #             i += 1
-    #     return retorno
+    def obtColectivos(self):
+        return self.__arreglo
+    def obtPatente(self):
+        return self.obtPatente()

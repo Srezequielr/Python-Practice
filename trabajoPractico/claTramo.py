@@ -17,5 +17,6 @@ class Tramo:
     def obtPatente(self):
         return self.__patente
     def __str__(self):
-        return f"Origen: {self.__origen}. \n Destino: {self.__destino}. \n Distancia: {self.__distancia}."
-        
+        return f"- Origen: {self.__origen}.\n- Destino: {self.__destino}.\n- Distancia: {self.__distancia}."
+    def __gt__(self, otro):
+        return self.__distancia > otro.__distancia    
