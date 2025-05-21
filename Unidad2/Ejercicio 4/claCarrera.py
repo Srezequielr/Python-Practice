@@ -12,5 +12,11 @@ class Carrera:
         self.__duracion = duracion
         self.__nivel = nivel
         self.__idFacultad = idFacultad
+    def obtNombre(self):
+        return self.__nombre
+    def obtIdFacultad(self):
+        return self.__idFacultad
+    def obtIdCarrera(self):
+        return self.__id
     
         

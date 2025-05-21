@@ -12,3 +12,5 @@ class Facultad:
         self.__telefono = telefono
     def obtNombre(self):
         return self.__nombre
+    def obtIdFacultad(self):
+        return self.__id
