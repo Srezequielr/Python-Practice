@@ -7,7 +7,7 @@ class ManejadorColectivo:
     __cantidad: int
     __incremento: int
     __dimencion: int
-    def __init__(self, cantidad = 0, incremento = 3, dimencion = 10):
+    def __init__(self, cantidad = 0, incremento = 3, dimencion = 5):
         self.__arreglo = np.empty(dimencion, Colectivo)
         self.__dimencion = dimencion
         self.__cantidad = cantidad
