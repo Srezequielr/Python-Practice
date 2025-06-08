@@ -73,7 +73,7 @@ class ManejadorHotel:
             habitaciones = hotel.obtHabitaciones()
             tipoHabitacion = input("Ingese tipo de habitacion: ")
             i = 0
-            while i < len(habitaciones): #preguntar en consulta sobre esto, porque puedo recorrer la lista de habitaicones con while y no con for en la forma for habitacion in range(len(habitaciones)) 
+            while i < len(habitaciones): 
                 if tipoHabitacion == habitaciones[i].obtTipo():
                     cont += 1
                     print(habitaciones[i])
@@ -127,29 +127,3 @@ class ManejadorHotel:
                 print("\n") 
         else: 
             print("Hotel no encontrado")
-
-            
-            # while j < len(tipos):
-            #     print(f"Tipo_de habitacion: {tipos[j]}")
-            #     print(f"{"Numero":<15}{"Piso":<10}{"Precio":<20}{"Disponibilidad":<15}")
-            #     while i < cantidad:
-            #         if tipos[j] == habitaciones[i].obtTipo():
-            #             habitaciones[i].mostrarHabitacion()
-            #         i += 1
-            #     j += 1
-            #     print("\n")      
-    
-            
-            
-            
-            # while i < cantidad:
-            #     print(f"Tipo_de habitacion: {tipos[j]}")
-            #     print(f"{"Numero":<15}{"Piso":<10}{"Precio":<20}{"Disponibilidad":<15}")
-            #     while j < len(tipos):
-            #         if tipos[j] == habitaciones[i].obtTipo():
-            #             print(habitaciones[i].mostrarHabitacion())
-            #         j += 1 
-            #     j = 0  
-            #     i += 1  
-            #     print("\n")  
-        

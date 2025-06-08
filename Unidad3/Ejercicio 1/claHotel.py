@@ -35,5 +35,3 @@ class Hotel:
     def __del__(self):
         print("Borrando datos")
         del self.__Habitaciones
-    
-        
