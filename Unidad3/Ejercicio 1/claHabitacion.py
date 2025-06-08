@@ -32,5 +32,7 @@ class Habitacion:
             self.__disponibilidad = True
             result = True
         return result
+    def mostrarHabitacion(self):
+        return f"{self.__numero:<15}{self.__piso:<10}{self.__precio:<20}{self.__disponibilidad:<15}"
     def __str__(self):
         return f"Numero de habitacion: {self.__numero}\nPiso de habitacion: {self.__piso}"

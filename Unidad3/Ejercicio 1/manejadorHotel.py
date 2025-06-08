@@ -102,9 +102,54 @@ class ManejadorHotel:
                 print("Piso invalido")
         else: 
             print("Hotel no encontrado")
+    def listaHab(self):
+        hotel = self.buscarHotel()
+        tipos = []
+        i = 0
+        j = 0
+        if hotel:
+            habitaciones = hotel.obtHabitaciones()
+            cantidad = len(habitaciones)
+            while i < cantidad:
+                tipos.append(habitaciones[i].obtTipo()) 
+                i+=1
+            tipos = list(set(tipos))
+            i = 0
+            while j < len(tipos):
+                print(f"Tipo_de habitacion: {tipos[j]}")
+                print(f"{"Numero":<15}{"Piso":<10}{"Precio":<20}{"Disponibilidad":<15}")
+                while i < cantidad:
+                    if tipos[j] == habitaciones[i].obtTipo():
+                       print(habitaciones[i].mostrarHabitacion())
+                    i += 1
+                j += 1
+                i = 0
+                print("\n") 
+        else: 
+            print("Hotel no encontrado")
+
+            
+            # while j < len(tipos):
+            #     print(f"Tipo_de habitacion: {tipos[j]}")
+            #     print(f"{"Numero":<15}{"Piso":<10}{"Precio":<20}{"Disponibilidad":<15}")
+            #     while i < cantidad:
+            #         if tipos[j] == habitaciones[i].obtTipo():
+            #             habitaciones[i].mostrarHabitacion()
+            #         i += 1
+            #     j += 1
+            #     print("\n")      
+    
             
             
             
-            
-        
+            # while i < cantidad:
+            #     print(f"Tipo_de habitacion: {tipos[j]}")
+            #     print(f"{"Numero":<15}{"Piso":<10}{"Precio":<20}{"Disponibilidad":<15}")
+            #     while j < len(tipos):
+            #         if tipos[j] == habitaciones[i].obtTipo():
+            #             print(habitaciones[i].mostrarHabitacion())
+            #         j += 1 
+            #     j = 0  
+            #     i += 1  
+            #     print("\n")  
         

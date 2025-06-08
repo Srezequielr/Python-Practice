@@ -19,7 +19,6 @@ Opcion: """))
 def main():
     manHotel = ManejadorHotel()
     manHotel.cargarDatos()
-    
 
     opcion = menu()
     
@@ -35,7 +34,7 @@ def main():
         elif opcion == 5:
             manHotel.mostrarHabLibres()
         elif opcion == 6:
-            pass
+            manHotel.listaHab()
         else:
             print("Opcion invalida")
         opcion = menu()
