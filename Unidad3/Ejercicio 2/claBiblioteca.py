@@ -20,12 +20,12 @@ class Biblioteca:
         self.__libros.append(libro)
         return 1
     def aliminarLibro(self, titulo):
-        indice
+        indice = 0
         i = 0
         encontrado = False
         cantidad = len(self.__libros)
         while i < cantidad and not encontrado:
-            if titulo == self.__libros[i]:
+            if titulo == self.__libros[i].obtTitulo():
                 encontrado = True
                 indice = i
             i += 1
@@ -34,3 +34,14 @@ class Biblioteca:
             print("Libro eliminado correctamente")
         else: 
             print("Libro no encontrado")
+    def buscarLibro(self, isbn):
+        encontrado = False
+        i = 0
+        resultado = False
+        cantidad = len(self.__libros)
+        while not encontrado and i < cantidad:
+            if isbn == self.__libros[i].obtIsbn():
+                encontrado = True
+                resultado = self.__nombre
+            i += 1
+        return resultado

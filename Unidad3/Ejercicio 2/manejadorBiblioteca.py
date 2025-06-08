@@ -18,12 +18,12 @@ class ManejadorBiblioteca:
                 self.__bibliotecas.append(biblioteca)
             if len(fila) == 4:
                 #Es un libro   
-                libro = Libro(fila[0], fila[1], fila[2], fila[4])
+                libro = Libro(fila[0], fila[1], fila[2], fila[3])
                 biblioteca.agregarLibro(libro)
-                self.__libros.append()
+                self.__libros.append(libro)
     def buscarBiblioteca(self):
         nomBiblio = input("Ingrese nombre de la biblioteca: ")
-        encontrado = bool
+        encontrado = False
         resultado = False
         i = 0
         cantidad = len(self.__bibliotecas)
@@ -53,4 +53,39 @@ class ManejadorBiblioteca:
             return
         titulo = input("Ingrese nombre del libro a eliminar: ")
         biblioteca.aliminarLibro(titulo)
+    def buscarLibro(self):
+        titulo = input("Ingrese titulo del libro: ")
+        i = 0
+        encontrado = False
+        cantidad = len(self.__libros)
+        resultado = False
+        while not encontrado and i < cantidad:
+            if titulo == self.__libros[i].obtTitulo():
+                encontrado = True
+                resultado = self.__libros[i]
+            i += 1
+        return resultado  
+    def verLibrosEnBibliotecas(self):
+        libro = self.buscarLibro()
+        cont = 0
+        if not libro:
+            print("Libro no encontrado") 
+            return
+        print(libro)
+        for biblioteca in self.__bibliotecas:
+            if biblioteca.buscarLibro(libro.obtIsbn()):
+                print(biblioteca.buscarLibro(libro.obtIsbn()))
+                cont += 1
+        if cont == 0:
+            print("Libro no se encuentra en ninguna biblioteca")
+    def verLibrosDisponibles(self):
+        biblioteca = self.buscarBiblioteca()
+        if not biblioteca:
+            print("Biblioteca no encontrada")
+            return
+        libros = biblioteca.obtLibros()
+        print("Libros disponibles en biblioteca:  ")
+        for libro in libros:
+            print(f"- {libro.obtTitulo()}")
+        
         

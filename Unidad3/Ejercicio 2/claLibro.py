@@ -16,3 +16,5 @@ class Libro:
         return self.__isbn
     def obtGenero(self):
         return self.__genero
+    def __str__(self):
+        return f"Autor: {self.__autor} Genero: {self.__genero}"
