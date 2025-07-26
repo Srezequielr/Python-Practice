@@ -1,0 +1,8 @@
+tipo,nombre,frecuencia,audiencia,emisora,tipo_publicacion,periodicidad,canal,programa,inicio,fin
+television,TV Pública,Canal 7,500000,,,,Noticias,Noticiero Central,20:00,21:00
+television,TV Pública,Canal 7,500000,,,,Noticias,Primera Mañana,07:00,08:00
+television,TV Pública,Canal 7,500000,,,,Deportes,Fútbol Para Todos,18:00,20:00
+radio,FM Rock,99.1,120000,Radio Rock,,,,,Rock & Roll,10:00,12:00
+radio,FM Rock,99.1,120000,Radio Rock,,,,,Noticias del Día,13:00,14:00
+prensa,La Voz,Diario,300000,,diario,Diaria,,,,,
+prensa,Revista Ciencia,Mensual,50000,,revista,Mensual,,,,,
