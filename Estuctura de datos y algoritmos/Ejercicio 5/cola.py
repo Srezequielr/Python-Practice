@@ -31,7 +31,7 @@ class Cola:
         if(self.vacia()):
             print("La cola esta vacia.")
         else:
-            result = self.__cola[self.__ui]
+            result = self.__cola[self.__pr]
             self.__cant -= 1
             self.__pr = (self.__pr + 1) % self.__max
         return result
