@@ -30,8 +30,10 @@ class PILA:
             self.__tope -= 1
         return resultado   
     def recorrer(self):
-        for numero in self.__PILA:
-            print(f"numero: {numero}")
+        i = self.__tope
+        while i >= 0:
+            print(self.__PILA[i])
+            i -= 1
     def estaVacia(self):
         return self.__tope == -1
     def estaLlena(self):

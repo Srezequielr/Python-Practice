@@ -1,8 +1,7 @@
-from Pila import PILA
-
+from pila import Pila
 def main():
-    pila = PILA()
-    
+    pila = Pila()
+
     pila.suprimir()
     pila.insertar(4)
     pila.insertar(2)
@@ -16,6 +15,6 @@ def main():
     pila.suprimir()
     
     pila.recorrer()
-    
+
 if __name__ == "__main__":
     main()
