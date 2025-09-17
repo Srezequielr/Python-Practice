@@ -1,0 +1,12 @@
+class Nodo:
+    __dato: int
+    __siguiente: object
+    def __init__(self, numero):
+        self.__dato = numero
+        self.__siguiente = None
+    def getSiguiente(self):
+        return self.__siguiente
+    def getDato(self):
+        return self.__dato
+    def setSiguiente(self, nuevoNodo):
+        self.__siguiente = nuevoNodo
