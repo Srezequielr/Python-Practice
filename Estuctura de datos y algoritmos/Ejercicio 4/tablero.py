@@ -43,7 +43,7 @@ class Tablero:
     
     def mostrarPilas(self):
         for pila in self.__tablero:
-            pila.mostrarPila()
+            pila.recorrer()
         
 
 
