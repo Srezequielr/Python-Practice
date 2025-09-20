@@ -15,17 +15,38 @@ class Lista:
     def insertar(self, pos, numero):
         result = None
         if(self.llena()):
-            print("La lista esta llena.")
+            print("La lista esta llena.")   
         elif(self.vacia()):
             print("Lista llena, insertando al comienzo...")
             self.__lista[self.__ult] = numero
+            self.__ult += 1
             result = numero
         elif(not pos > self.__ult):
             for i in range(self.__ult, pos, -1):
                 self.__lista[i] = self.__lista[i - 1]
-            
+            self.__lista[pos] = numero
+            self.__ult += 1
+            result = numero
         else:
             print("Posicion invalida.")
-        
         return result
+    def suprimir(self, pos):
+        result = None
+        if(self.vacia()):
+            print("La lista esta vacia.")
+        elif(not pos > self.__ult):
+            result = self.__lista[pos]
+            for i in range(self.__ult, pos, - 1):
+                self.__lista[i - 1] = self.__lista[i]
+            self.__ult -= 1
+
+        else: 
+            print("Posicion invalida.")
+        return result
+    def recorrer(self):
+        i = 0
+        while i < self.__ult:
+            print(self.__lista[i])
+            i += 1  
+
         
