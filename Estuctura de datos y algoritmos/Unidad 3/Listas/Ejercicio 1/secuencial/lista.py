@@ -7,24 +7,24 @@ class Lista:
     def __init__(self, dimencion = 10):
         self.__ult = 0
         self.__max = dimencion
-        self.__lista = np.empty(dimencion, dtype = dimencion)
+        self.__lista = np.empty(dimencion, dtype = int)
     def vacia(self):
         return self.__ult == 0
     def llena(self):
-        return self.__ult == self.__max
+        return self.__ult == self.__max - 1
     def insertar(self, pos, numero):
         result = None
         if(self.llena()):
             print("La lista esta llena.")   
         elif(self.vacia()):
-            print("Lista llena, insertando al comienzo...")
+            print("Lista vacia, insertando al comienzo...")
             self.__lista[self.__ult] = numero
             self.__ult += 1
             result = numero
-        elif(not pos > self.__ult):
-            for i in range(self.__ult, pos, -1):
+        elif(not pos - 1 > self.__ult):
+            for i in range(self.__ult, pos - 1, -1):  # (Comienzo, Fin, Salto)
                 self.__lista[i] = self.__lista[i - 1]
-            self.__lista[pos] = numero
+            self.__lista[pos - 1] = numero
             self.__ult += 1
             result = numero
         else:
@@ -34,10 +34,10 @@ class Lista:
         result = None
         if(self.vacia()):
             print("La lista esta vacia.")
-        elif(not pos > self.__ult):
-            result = self.__lista[pos]
-            for i in range(self.__ult, pos, - 1):
-                self.__lista[i - 1] = self.__lista[i]
+        elif(not pos - 1 > self.__ult):
+            result = self.__lista[pos - 1]
+            for i in range(pos - 1, self.__ult, + 1):
+                self.__lista[i] = self.__lista[i + 1]
             self.__ult -= 1
 
         else: 
