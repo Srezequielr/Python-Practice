@@ -48,5 +48,34 @@ class Lista:
         while i < self.__ult:
             print(self.__lista[i])
             i += 1  
+    def primerElemento(self):
+        return self.__lista[0]
+    def ultimoElemento(self):
+        return self.__lista[self.__ult]
+    def siguiente(self, p):
+        if(p > self.__ult):
+            print("Overflow")
+        else:
+            return self.__lista[p]
+    def anterior(self, p):
+        if (p - 2 < 0):
+            print("Overflow")
+        else:
+            return self.__lista[p - 2]
+    def buscar(self, dato):
+        i = 0 
+        encontrado = False
+        result = None
+        while not encontrado and i <= self.__ult:
+            if(self.__lista[i] == dato):
+                result = self.__lista[i]
+                encontrado = True
+        return result
+        
+
+        
+    
+
+
 
         
