@@ -36,10 +36,9 @@ class Lista:
             print("La lista esta vacia.")
         elif(not pos - 1 > self.__ult):
             result = self.__lista[pos - 1]
-            for i in range(pos - 1, self.__ult, + 1):
+            for i in range(pos - 1, self.__ult):
                 self.__lista[i] = self.__lista[i + 1]
             self.__ult -= 1
-
         else: 
             print("Posicion invalida.")
         return result
