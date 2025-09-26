@@ -26,8 +26,8 @@ class Lista:
             while i < self.__ult and self.__lista[i] < numero:
                 i += 1
 
-            for j in range(self.__ult, i, -1):
-                self.__lista[j + 1] = self.__lista[j]
+            for j in range(self.__ult, i, - 1):
+                self.__lista[j] = self.__lista[j - 1]
             
             self.__lista[i] = numero
             self.__ult += 1
@@ -46,7 +46,7 @@ class Lista:
         return result
     def recorrer(self):
         i = 0
-        while i <= self.__ult:
+        while i < self.__ult:
             print(self.__lista[i])
             i += 1
     def buscar(self, elem):
@@ -77,25 +77,25 @@ class Lista:
         if(self.vacia()):
             print("Lista vacia.")
         else:
-            result = self.lista[0]
+            result = self.__lista[0]
         return result
     def ultimo(self):
         result = None
         if(self.vacia()):
             print("La lista esta vacia.")
         else:
-            result = self.__lista[self.__ult]
+            result = self.__lista[self.__ult - 1]
         return result
     def siguiente(self, pos):
         result = None
-        if(pos - 2 > self.__ult and pos - 1 < 0):
+        if(pos + 1 > self.__ult or pos - 1 < 0):
             print("Posicion invalida")
         else:
             result = self.__lista[pos]
         return result
     def anterior(self, pos):
         result = None
-        if(pos > self.__ult and pos - 2 < 0):
+        if(pos - 1 > self.__ult or pos - 2 < 0):
             print("Posicion invalida")
         else:
             result = self.__lista[pos - 2]
