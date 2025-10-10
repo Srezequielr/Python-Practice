@@ -8,21 +8,21 @@ class Arbol:
         if(self.__raiz == None):
             self.__raiz = Nodo(dato)
         else:
-            self.__insertar(self.__raiz)
+            self.__insertar(self.__raiz, dato)
 
-    def __insertar(self, dato, raiz):
+    def __insertar(self, nodo, dato):
         nuevaHoja = Nodo(dato)
-        if(raiz == None):
+        if(nodo == None):
             print("Inserte...")
-            raiz = nuevaHoja
-        elif(raiz.getDato() == nuevaHoja.getDato()):
+            nodo = nuevaHoja
+        elif(nodo.getDato() == nuevaHoja.getDato()):
             print("Elemento ya existente")
-        elif(raiz.getDato() < nuevaHoja.getDato()):
+        elif(nodo.getDato() < nuevaHoja.getDato()):
             print("Me desplace a la izquiera")
-            self.insertar(dato, raiz.getIzq())
-        elif(raiz.getDato() > nuevaHoja.getDato()):
+            self.__insertar(nodo.getIzq(), dato)
+        elif(nodo.getDato() > nuevaHoja.getDato()):
             print("Me desplace a la derecha")
-            self.insertar(dato, raiz.getDer())
+            self.__insertar(nodo.getDer(), dato)
     def getRaiz(self):
         return self.__raiz
 

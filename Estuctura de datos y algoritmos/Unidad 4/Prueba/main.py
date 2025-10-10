@@ -4,11 +4,11 @@ def main():
     arbol = Arbol()
 
     arbol.insertar(20)
-    # arbol.insertar(30, arbol)
-    # arbol.insertar(40, arbol)
-    # arbol.insertar(50, arbol)
-    # arbol.insertar(60, arbol)
-    # arbol.insertar(70, arbol)
+    arbol.insertar(30)
+    arbol.insertar(40)
+    arbol.insertar(50)
+    arbol.insertar(60)
+    arbol.insertar(70)
 
 
 if __name__ == "__main__":
