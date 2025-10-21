@@ -16,3 +16,10 @@ class Nodo:
         self.__izq = izq
     def setDer(self, der):
         self.__der = der
+    def grado(self):
+        grado = 0
+        if(self.getIzq() is not None):
+            grado += 1
+        if(self.getDer() is not None):
+            grado += 1
+        return grado
