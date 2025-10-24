@@ -10,7 +10,7 @@ class Arbol:
         return self.__raiz
     # ====================
 
-    # ===== Setear Raiz
+    # ===== Setear Raiz =====
     def setRaiz(self, dato):
         self.__raiz = dato
     # ====================
