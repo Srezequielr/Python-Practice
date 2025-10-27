@@ -47,12 +47,16 @@ def main():
     # ====================
 
     # ===== Mostrar nodos del mismo nivel de un nodo dado =====
-    arbol.mostrarXnivel(xRaiz ,arbol.buscarNivel(xRaiz, 5, cont), 1)
+    # arbol.mostrarXnivel(xRaiz ,arbol.buscarNivel(xRaiz, 5, cont), 1)
     # ====================
     
     # ===== Busca un nodo dada una clave =====
     # print(arbol.buscar(xRaiz, 5))
     # ====================
+
+    arbol.hijo(30, 40)
+
+    arbol.padre(30, 40)
 
 if __name__ == "__main__":
     main()

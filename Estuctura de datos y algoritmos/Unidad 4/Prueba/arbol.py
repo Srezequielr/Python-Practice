@@ -20,7 +20,7 @@ class Arbol:
         return self.getRaiz() == None
     # ====================
 
-    # ===== Ver si el nodo es hoja =====
+    # ===== Ver si el nodo es hoja TAD ESPEC=====
     def esHoja(self, subArbol):
         return subArbol.grado() == 0
     # ====================
@@ -38,17 +38,13 @@ class Arbol:
         if(nodo.getDato() == nuevaHoja.getDato()):
             print("Elemento ya existente")
         elif(nodo.getDato() > nuevaHoja.getDato()):
-            print("Me desplace a la izquiera")
             if(nodo.getIzq() == None):
                 nodo.setIzq(nuevaHoja)
-                print("Inserte...")
             else:
                 self.__insertar(nodo.getIzq(), dato)
         elif(nodo.getDato() < nuevaHoja.getDato()):
-            print("Me desplace a la derecha")
             if(nodo.getDer() == None):
                 nodo.setDer(nuevaHoja)
-                print("Inserte...")
             else:
                 self.__insertar(nodo.getDer(), dato)
     # ====================
@@ -108,7 +104,7 @@ class Arbol:
             self.mostrarXnivel(subArbol.getDer(), nivel, cont + 1)
     # ====================
 
-    # ===== Mostrar nivel de un nodo =====
+    # ===== Mostrar nivel de un nodo TAD ESPEC=====
     def buscarNivel(self, subArbol, x, cont):
         if(self.vacio()):
             print("El arbol esta vacio")
@@ -119,16 +115,14 @@ class Arbol:
                 print(f"Encontro el elemento: {subArbol.getDato()}, en el nivel {cont}")  
                 return cont
             elif(x < subArbol.getDato()):
-                print("Mi x es menor, me voy a la izquierda")
                 cont += 1
                 return self.buscarNivel(subArbol.getIzq(), x, cont)
             else:
-                print("Mi x es mayor, me voy a la derecha.")
                 cont += 1
                 return self.buscarNivel(subArbol.getDer(), x, cont)
     # ====================
 
-    # ===== Buscar nodo, retorna el nodo ===== 
+    # ===== Buscar nodo, retorna el nodo TAD ESPEC===== 
     def buscar(self, subArbol, x):
         if(self.vacio()):
             print("El arbol esta vacio")
@@ -139,11 +133,39 @@ class Arbol:
                 print(f"Encontro el elemento: {subArbol.getDato()}")  
                 return subArbol
             elif(x < subArbol.getDato()):
-                print("Mi x es menor, me voy a la izquierda")
                 return self.buscar(subArbol.getIzq(), x)
             else:
-                print("Mi x es mayor, me voy a la derecha.")
                 return self.buscar(subArbol.getDer(), x)
+    # ====================
+
+    # ===== Ve si un nodo X es hijo de un nodo Z TAD ESPEC =====
+    def hijo(self, claveHijo, clavePadre):
+        nodoPadre = self.buscar(self.getRaiz(), clavePadre)
+        if(clavePadre < claveHijo):
+            if(claveHijo == nodoPadre.getDer().getDato()):
+                print(f"La clave {claveHijo} es hijo de clave {clavePadre}")
+            else:
+                print(f"La clave {claveHijo} NO es hijo de clave {clavePadre}")
+        else:
+            if(claveHijo == nodoPadre.getIzq().getDato()):
+                print(f"La clave {claveHijo} es hijo de clave {clavePadre}")
+            else:
+                print(f"La clave {claveHijo} NO es hijo de clave {clavePadre}")
+    # ====================
+
+    # ===== Ve si un nodo X es padre de un nodo Z TAD ESPEC =====
+    def padre(self, clavePadre, claveHijo):
+        nodoPadre = self.buscar(self.getRaiz(), clavePadre)
+        if(clavePadre < claveHijo):
+            if(claveHijo == nodoPadre.getDer().getDato()):
+                print(f"La clave {clavePadre} es padre de clave {claveHijo}")
+            else:
+                print(f"La clave {clavePadre} NO es hijo de clave {claveHijo}")
+        else:
+            if(claveHijo == nodoPadre.getIzq().getDato()):
+                print(f"La clave {clavePadre} es hijo de clave {claveHijo}")
+            else:
+                print(f"La clave {clavePadre} NO es hijo de clave {claveHijo}")
     # ====================
     
     def suprimir(self, dato, aux, ant,ult):
