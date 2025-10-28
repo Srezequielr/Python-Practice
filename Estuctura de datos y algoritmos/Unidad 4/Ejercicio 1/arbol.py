@@ -40,3 +40,105 @@ class Arbol:
     def buscar(self, subArbol, clave):
         if(subArbol == None):
             print("No se encontro el elemento.")
+        if(subArbol.getDato() == clave):
+            print("Se encontro el nodo.")
+            return subArbol
+        else:
+            if(subArbol.getDato() < clave):
+                return self.buscar(subArbol.getDer(), clave)
+            else:
+                return self.buscar(subArbol.getIzq(), clave)
+    # ====================
+
+    # ===== Dar el nivel de un nodo =====
+    def nivel(self, subArbol, nivel, clave):
+        if(subArbol == None):
+            print("No se encontro el nodo")
+        if(subArbol.getDato() == clave):
+            return nivel
+        else:
+            if(subArbol.getDato() < clave):
+                return self.nivel(subArbol.getDer(), nivel + 1, clave)
+            else:
+                return self.nivel(subArbol.getIzq(), nivel + 1, clave)
+    # ====================
+
+    # ===== Ver si un nodo es hoja =====
+    def hoja(self, clave):
+        result = None 
+        nodo = self.buscar(self.getRaiz(), clave)
+        if(nodo.grado() == 0):
+            print("El nodo es hoja")
+            result = 1
+        else:
+            print("El nodo no es hoja")
+        return result
+    # ====================
+
+    # ===== Ver si un nodo X es hijo de un nodo Z =====
+    def hijo(self, claveHijo, clavePadre):
+        result = None
+        nodoPadre = self.buscar(self.getRaiz(), clavePadre)
+        if(nodoPadre == None):
+            print("Error: no se encontro el nodo padre")
+        else:
+            if(clavePadre < claveHijo):
+                if(nodoPadre.getDer().getDato() == claveHijo):
+                    print(f"El nodo clave {claveHijo} es hijo de nodo clave {clavePadre}.")
+                    result = 1
+                else:
+                    print(f"El nodo clave {claveHijo} NO es hijo de nodo clave {clavePadre}.")
+            else:
+                if(nodoPadre.getIzq().getDato() == claveHijo):
+                    print(f"El nodo clave {claveHijo} es hijo de nodo clave {clavePadre}")
+                    result = 1
+                else:
+                    print(f"El nodo clave {claveHijo} NO es hijo de nodo clave {clavePadre}.")
+        return result
+    # ====================
+
+    # ===== Ver si un nodo X es padre de un nodo Z =====
+    def padre(self, clavePadre, claveHijo):
+        result = None
+        nodoPadre = self.buscar(self.getRaiz(), clavePadre)
+        if(nodoPadre == None):
+            print("Error: no se encontro el nodo padre")
+        else:
+            if(clavePadre < claveHijo):
+                if(nodoPadre.getDer().getDato() == claveHijo):
+                    print(f"El nodo clave {clavePadre} es padre de nodo clave {claveHijo}.")
+                    result = 1
+                else:
+                    print(f"El nodo clave {clavePadre} NO es padre de nodo clave {claveHijo}.")
+            else:
+                if(nodoPadre.getIzq().getDato() == claveHijo):
+                    print(f"El nodo clave {clavePadre} es padre de nodo clave {claveHijo}")
+                    result = 1
+                else:
+                    print(f"El nodo clave {clavePadre} NO es padre de nodo clave {claveHijo}.")
+        return result
+    # ====================
+
+    # ===== Ver el camino de un nodo X hacia un nodo Z =====
+    def camino(self, claveX, claveZ):
+        pass
+        # Preguntar en consulta
+    # ====================
+
+    # ===== Calcula la altura del arbol =====
+    def altura(self, subArbol):
+        if(subArbol == None):
+            return 0
+        
+        alturaDerecha = self.altura(subArbol.getDer())
+        alturaIzquierda = self.altura(subArbol.getIzq())
+
+        if(alturaDerecha < alturaIzquierda):
+            return 1 + alturaIzquierda
+        else:
+            return 1 + alturaDerecha
+
+    # ====================
+        
+
+        
