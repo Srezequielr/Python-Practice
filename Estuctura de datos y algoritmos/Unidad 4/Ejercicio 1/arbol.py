@@ -139,6 +139,28 @@ class Arbol:
             return 1 + alturaDerecha
 
     # ====================
-        
 
+    # ===== PreOrden =====
+    def preOrden(self, subArbol):   # Raiz -> izquierda -> derecha
+        if(subArbol != None):
+            print(subArbol.getDato())
+            self.preOrden(subArbol.getIzq())
+            self.preOrden(subArbol.getDer())
+    # ====================
+
+    # ===== PosOrden =====
+    def posOrden(self, subArbol):   # izquierda -> derecha -> Raiz
+        if(subArbol != None):
+            self.preOrden(subArbol.getIzq())
+            self.preOrden(subArbol.getDer())
+            print(subArbol.getDato())
+    # ====================
+
+    # ===== InOrden =====
+    def inOrden(self, subArbol):    # izquierda -> Raiz -> derecha 
+        if(subArbol != None):
+            self.preOrden(subArbol.getIzq())
+            print(subArbol.getDato())
+            self.preOrden(subArbol.getDer())
+    # ====================
         
