@@ -167,6 +167,68 @@ class Arbol:
             else:
                 print(f"La clave {clavePadre} NO es hijo de clave {claveHijo}")
     # ====================
+
+    # ===== Contar 1 Descendiente recursivo ===== 
+    def unDescendiente_iterativo(self, raiz):
+
+        cont = 0
+        stack = []      # La pila para simular la recursión
+        actual = raiz   # Empezamos en la raíz
+
+        # El bucle debe continuar mientras 'actual' no sea None (aún bajando)
+        # O mientras la pila no esté vacía (aún tenemos nodos por visitar)
+        while actual is not None or len(stack) > 0:
+
+            # --- 1. Parte IZQUIERDA ---
+            # Navega lo más a la izquierda posible
+            # Apilamos los nodos a medida que bajamos para "recordarlos"
+            while actual is not None:
+                stack.append(actual)
+                actual = actual.getIzq()
+
+            # --- 2. Parte RAÍZ ---
+            # Si llegamos aquí, 'actual' es None (tocamos fondo a la izquierda).
+            # El último nodo válido que vimos está en el tope de la pila.
+            # Lo sacamos (pop) para "visitarlo".
+            actual = stack.pop()
+
+            if(actual.grado() == 1):
+                cont += 1
+            
+            # (Aquí podrías hacer print(actual.valor) en lugar de añadir a la lista)
+
+            # --- 3. Parte DERECHA ---
+            # Ya visitamos la izquierda y la raíz, ahora vamos a la derecha.
+            # El bucle principal se encargará de, en la siguiente iteración,
+            # encontrar el nodo más a la izquierda de esta nueva rama derecha.
+            actual = actual.getDer()
+
+        return cont
+    # ====================
+
+    # ===== Contar 1 Descendiente =====
+    def unDescendiente(self, subArbol, cont):
+        if(subArbol != None):
+            if (subArbol.grado() == 1):
+                cont += 1
+            # 2. Recorrer la izquierda
+            # Pasamos el contador actual. La función nos devolverá
+            # el contador + todo lo que encontró en la rama izquierda.
+            # ACTUALIZAMOS nuestro contador con ese nuevo total.
+            cont = self.unDescendiente(subArbol.getIzq(), cont)
+
+            # 3. Recorrer la derecha
+            # Pasamos el contador (que YA incluye lo de la izquierda)
+            # a la rama derecha. De nuevo, ACTUALIZAMOS el contador
+            # con el total que regrese.
+            cont = self.unDescendiente(subArbol.getDer(), cont)
+
+            # 4. Devolver el total acumulado de esta rama
+            return cont
+        else:
+            return cont
+    # ==================== 
+
     
     def suprimir(self, dato, aux, ant,ult):
             if self.vacio():

@@ -54,9 +54,13 @@ def main():
     # print(arbol.buscar(xRaiz, 5))
     # ====================
 
-    arbol.hijo(30, 40)
+    print("Un solo descendiente: ", arbol.unDescendiente_iterativo(xRaiz))
 
-    arbol.padre(30, 40)
+    # ===== Ve si un nodo X es hijo de un nodo Z y viceversa TAD ESPEC =====
+    # arbol.hijo(30, 40)
+    # arbol.padre(30, 40)
+    # ====================
+
 
 if __name__ == "__main__":
     main()
