@@ -211,22 +211,9 @@ class Arbol:
         if(subArbol != None):
             if (subArbol.grado() == 1):
                 cont += 1
-            # 2. Recorrer la izquierda
-            # Pasamos el contador actual. La función nos devolverá
-            # el contador + todo lo que encontró en la rama izquierda.
-            # ACTUALIZAMOS nuestro contador con ese nuevo total.
             cont = self.unDescendiente(subArbol.getIzq(), cont)
-
-            # 3. Recorrer la derecha
-            # Pasamos el contador (que YA incluye lo de la izquierda)
-            # a la rama derecha. De nuevo, ACTUALIZAMOS el contador
-            # con el total que regrese.
             cont = self.unDescendiente(subArbol.getDer(), cont)
-
-            # 4. Devolver el total acumulado de esta rama
-            return cont
-        else:
-            return cont
+        return cont
     # ==================== 
 
     
