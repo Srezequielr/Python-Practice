@@ -5,7 +5,7 @@ class HashEncadenado:
     __hash: np.array
     __tamanio: int
     def __init__(self, clavesEsperadas = 100, promColiciones = 2):
-        self.__tamanio = round(self.proxPrim(clavesEsperadas / promColiciones))
+        self.__tamanio = (self.proxPrim(int(clavesEsperadas / promColiciones)))
         self.__hash = np.array([Lista() for _ in range(self.__tamanio)], dtype = Lista)
 
     # ===== Insertar =====
