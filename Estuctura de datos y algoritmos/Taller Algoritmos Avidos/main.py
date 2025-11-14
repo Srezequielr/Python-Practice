@@ -48,11 +48,11 @@ def main():
         TEspera.append(acumulado)
         print(f"  Cliente {NCliente} (tarea de {DurTarea} min): Espera = {acumulado} min")
         
-        # El tiempo acumulado es el tiempo de espera para el cliente actual
-        Ttotal += acumulado
-        # Sumamos el tiempo de espera de este cliente al total
+        # El tiempo acumulado es el tiempo de espera para terminar la tarea
         acumulado += DurTarea
         
+        # Sumamos el tiempo de espera de este cliente al total
+        Ttotal += acumulado
         
         NCliente += 1
 
